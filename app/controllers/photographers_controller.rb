@@ -3,6 +3,7 @@ class PhotographersController < ApplicationController
  
   def index
     @photographers = Photographer.all
+ 
     # @photographers = Photographer.search(params[:search], params[:id])
   end
 

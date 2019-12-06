@@ -1,5 +1,5 @@
 class Photographer < ApplicationRecord
-  belongs_to :gallery
+  belongs_to :gallery, optional: true
   belongs_to :user
   mount_uploader :image, ImageUploader
   mount_uploader :video, VideoUploader

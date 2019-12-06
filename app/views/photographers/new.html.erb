@@ -1,6 +1,6 @@
  
 <% init = 0 %>
-<% @galleries.each do |gallery| %>
+<% Gallery.all.each do |gallery| %>
  <% if current_user.id==gallery.user_id %>
  <% init = 1 %>
     <% break %>

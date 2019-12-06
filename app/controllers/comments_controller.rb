@@ -6,9 +6,9 @@ class CommentsController < ApplicationController
   @comment = @photographer.comments.create(params[:comment].permit(:name, :email))
   @comment.save
    if @comment.save
-     redirect_to photographer_path(@photographer)
+     redirect_to photographer_path(@photographer), notice: 'comment was successfully created.'
    else
-    render 'new'
+    redirect_to photographer_path(@photographer), notice: 'comment failed........'
    end
   end
 
