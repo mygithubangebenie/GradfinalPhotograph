@@ -15,15 +15,20 @@
  <div class="navbar">
   <nav class="navbar navbar-light">
   <a class="navbar-brand" style="color:#fff;">Purity Photographic Website</a>
+  <form class="form-inline" style="margin-left:900px">
+  <% if !current_user%>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style='padding-right:5px'><%= link_to "Sign Up", new_user_registration_path %></button>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><%= link_to "Sign In", new_user_session_path %></button>
+  <% else %>
+    <button class="btn btn-outline-danger my-2 my-sm-0" type="submit"><%= link_to "Sign Out", destroy_user_session_path, :method => 'delete'%></button>
+  <% end %>
+  </form>
   </nav>
   </div>
 
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-  <%= link_to "Sign Up", new_user_registration_path %>
-  <%= link_to "Sign In", new_user_session_path %>
-  <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete', class:"left" %>
     <%= yield %>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

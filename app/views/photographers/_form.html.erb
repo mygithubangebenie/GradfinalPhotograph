@@ -1,3 +1,5 @@
+<div class="main">
+<h1 class="h1">New Post</h1><hr class="hr">
 <%= form_with(model: photographer, local: true) do |form| %>
   <% if photographer.errors.any? %>
     <div id="error_explanation">
@@ -10,24 +12,23 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :upload_date %>
+  <div class="form-group">
+    <%= form.label :upload_date %><br>
     <%= form.date_select :upload_date,  id: :video_title %>
   </div>
 
-  <div class="field">
-    <%= form.label :image %>
+  <div class="form-group">
+    <%= form.label :image %><br>
     <%= form.file_field :image,  id: :video_title%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_field :description,   id: :video_title%>
+    <%= form.text_area :description,   id: :video_title,class:'form-control'%>
   </div>
 
-  <div class="field">
-    <%= form.label :Video %>
+  <div class="form-group">
+    <%= form.label :Video %><br>
     <%= form.file_field :video, id: :video_title %>
   </div>
 
@@ -44,15 +45,14 @@
         </ul>
       </div>
     <% end %>
-    <div class="field">
+    <div class="form-group">
     
   <%= form.hidden_field :gallery_id, value: current_user.gallery.id %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:'btn btn-outline-success' %>
   </div>
 <% end %>
 <% end %>
-
-<a href="javascript:history.go(-1)"onMouseOver="self.status.referrer;return true" class="btn btn-info">back</a>
+</div>
